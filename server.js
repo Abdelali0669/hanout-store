@@ -1,17 +1,14 @@
 const express = require('express');
-const path = require('path');
 const app = express();
+const port = process.env.PORT || 3000;
 
-// Railway تضع رقم المنفذ في متغير نظام يسمى PORT
-// إذا لم تجده، سنستخدم 8080 كخيار احتياطي
-const port = process.env.PORT || 8080;
-
-app.use(express.static(__dirname));
+// استخدام المسار الحالي مباشرة
+app.use(express.static('./'));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(__dirname + '/index.html');
 });
 
-app.listen(port, () => {
-    console.log(`الخادم يعمل الآن على المنفذ ${port}`);
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server running on port ${port}`);
 });
