@@ -2,8 +2,11 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-// Railway توفر المنفذ عبر process.env.PORT
-const port = process.env.PORT || 3000;
+// Railway تضع رقم المنفذ في متغير نظام يسمى PORT
+// إذا لم تجده، سنستخدم 8080 كخيار احتياطي
+const port = process.env.PORT || 8080;
+
+app.use(express.static(__dirname));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
