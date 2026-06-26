@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header><h1>إتمام الطلب</h1></header>
+    <div class="container">
+        <form id="orderForm">
+            <input type="text" id="name" placeholder="الاسم الكامل" required><br>
+            <input type="tel" id="phone" placeholder="رقم الهاتف" required><br>
+            <input type="text" id="state" placeholder="الولاية" required><br>
+            <input type="text" id="city" placeholder="البلدية" required><br>
+            <input type="text" id="address" placeholder="العنوان بالتفصيل" required><br>
+            <select id="payment">
+                <option value="عند الاستلام">الدفع عند الاستلام</option>
+                <option value="الدفع الإلكتروني">الدفع الإلكتروني (CCP/Baridimob)</option>
+            </select><br>
+            <button type="button" class="btn-add" onclick="sendToWhatsApp()">إرسال الطلب عبر واتساب</button>
+        </form>
+    </div>
+
+    <script>
+        function sendToWhatsApp() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const state = document.getElementById('state').value;
+            const city = document.getElementById('city').value;
+            const address = document.getElementById('address').value;
+            const payment = document.getElementById('payment').value;
+            
+            const message = `طلب جديد:%0Aالاسم: ${name}%0Aالهاتف: ${phone}%0Aالولاية: ${state}%0Aالبلدية: ${city}%0Aالعنوان: ${address}%0Aطريقة الدفع: ${payment}`;
+            
+            window.location.href = `https://wa.me/213669002673?text=${message}`;
+        }
+    </script>
+</body>
+</html>
