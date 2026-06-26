@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head><link rel="stylesheet" href="style.css"></head>
+<head><link rel="stylesheet" href="style.css"><title>السلة</title></head>
 <body>
-    <header><h1>سلة مشترياتك</h1></header>
-    <div class="container" id="cart-items">
-        </div>
+    <header><h1>سلة المشتريات</h1></header>
+    <nav>
+        <a href="/">الرئيسية</a> <a href="/cart">السلة</a> <a href="/contact">اتصل بنا</a> <a href="/checkout">إتمام الطلب</a>
+    </nav>
+    <div class="container" id="cart-items"></div>
     <script>
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const container = document.getElementById('cart-items');
-        cart.forEach(item => {
-            container.innerHTML += `<p>${item.name} - ${item.price} دج</p>`;
-        });
+        document.getElementById('cart-items').innerHTML = cart.length ? cart.map(i => `<p>${i.name}</p>`).join('') : 'السلة فارغة';
     </script>
 </body>
 </html>
