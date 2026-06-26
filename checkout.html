@@ -1,39 +1,13 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-</head>
+<head><link rel="stylesheet" href="style.css"></head>
 <body>
     <header><h1>إتمام الطلب</h1></header>
-    <div class="container">
-        <form id="orderForm">
-            <input type="text" id="name" placeholder="الاسم الكامل" required><br>
-            <input type="tel" id="phone" placeholder="رقم الهاتف" required><br>
-            <input type="text" id="state" placeholder="الولاية" required><br>
-            <input type="text" id="city" placeholder="البلدية" required><br>
-            <input type="text" id="address" placeholder="العنوان بالتفصيل" required><br>
-            <select id="payment">
-                <option value="عند الاستلام">الدفع عند الاستلام</option>
-                <option value="الدفع الإلكتروني">الدفع الإلكتروني (CCP/Baridimob)</option>
-            </select><br>
-            <button type="button" class="btn-add" onclick="sendToWhatsApp()">إرسال الطلب عبر واتساب</button>
-        </form>
+    <nav><a href="/">الرئيسية</a><a href="/cart">السلة</a><a href="/contact">اتصل بنا</a><a href="/checkout">إتمام الطلب</a></nav>
+    <div class="container" style="max-width: 500px; margin: 20px auto;">
+        <input type="text" id="name" placeholder="الاسم الكامل">
+        <input type="text" id="address" placeholder="العنوان">
+        <button onclick="window.location.href='https://wa.me/213669002673?text=طلب جديد من: '+document.getElementById('name').value">إرسال عبر واتساب</button>
     </div>
-
-    <script>
-        function sendToWhatsApp() {
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const state = document.getElementById('state').value;
-            const city = document.getElementById('city').value;
-            const address = document.getElementById('address').value;
-            const payment = document.getElementById('payment').value;
-            
-            const message = `طلب جديد:%0Aالاسم: ${name}%0Aالهاتف: ${phone}%0Aالولاية: ${state}%0Aالبلدية: ${city}%0Aالعنوان: ${address}%0Aطريقة الدفع: ${payment}`;
-            
-            window.location.href = `https://wa.me/213669002673?text=${message}`;
-        }
-    </script>
 </body>
 </html>
