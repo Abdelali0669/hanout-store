@@ -1,15 +1,53 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head><link rel="stylesheet" href="style.css"><title>الرئيسية</title></head>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>الرئيسية</title>
+</head>
 <body>
-    <header><h1>متجر حانوت</h1></header>
+    <header>
+        <h1>متجر حانوت</h1>
+    </header>
+
     <nav>
-        <a href="/">الرئيسية</a> <a href="/cart">السلة</a> <a href="/contact">اتصل بنا</a> <a href="/checkout">إتمام الطلب</a>
+        <a href="/">الرئيسية</a> 
+        <a href="/cart">السلة</a> 
+        <a href="/contact">اتصل بنا</a> 
+        <a href="/checkout">إتمام الطلب</a>
     </nav>
+
     <div class="container">
-        <h3>منتج تجريبي</h3>
-        <button onclick="alert('تمت الإضافة')">أضف للسلة</button>
+        <!-- قسم المنتجات -->
+        <div class="product-grid">
+            <div class="product-card">
+                <h3>منتج رقم 1</h3>
+                <p>السعر: 900 دج</p>
+                <button onclick="addToCart('منتج رقم 1', 900)">أضف للسلة</button>
+            </div>
+            <div class="product-card">
+                <h3>منتج رقم 2</h3>
+                <p>السعر: 1200 دج</p>
+                <button onclick="addToCart('منتج رقم 2', 1200)">أضف للسلة</button>
+            </div>
+            <div class="product-card">
+                <h3>منتج رقم 3</h3>
+                <p>السعر: 1500 دج</p>
+                <button onclick="addToCart('منتج رقم 3', 1500)">أضف للسلة</button>
+            </div>
+            <div class="product-card">
+                <h3>منتج رقم 4</h3>
+                <p>السعر: 2000 دج</p>
+                <button onclick="addToCart('منتج رقم 4', 2000)">أضف للسلة</button>
+            </div>
+            <div class="product-card">
+                <h3>منتج رقم 5</h3>
+                <p>السعر: 2500 دج</p>
+                <button onclick="addToCart('منتج رقم 5', 2500)">أضف للسلة</button>
+            </div>
+        </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
