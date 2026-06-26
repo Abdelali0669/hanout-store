@@ -1,19 +1,13 @@
 const express = require('express');
+const path = require('path');
 const app = express();
+const port = process.env.PORT || 3000;
 
-app.use(express.json());
-
-// مسار تجريبي
+// هذا السطر يخبر الخادم أن يرسل ملف index.html للزوار
 app.get('/', (req, res) => {
-  res.send('حانوت يعمل الآن كخادم!');
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// استقبال بيانات الطلب
-app.post('/order', (req, res) => {
-  console.log('وصل طلب جديد:', req.body);
-  res.json({ status: 'تم استلام الطلب' });
-});
-
-app.listen(3000, () => {
-  console.log('الخادم يعمل على المنفذ 3000');
+app.listen(port, () => {
+    console.log(`الخادم يعمل على المنفذ ${port}`);
 });
